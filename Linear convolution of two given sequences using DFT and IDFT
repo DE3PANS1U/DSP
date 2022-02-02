@@ -1,0 +1,23 @@
+Linear convolution of two given sequences using DFT and
+IDFT
+
+%Linear Convolution Program using DFT
+x1=[1 2 3 4];
+x2= [1 2 3 4];
+N=length(x1)+length(x2)-1;
+%obtain DFTs
+X1= fft(x1,N);
+X2= fft(x2,N);
+%Perform vector multiplication
+y= X1.*X2;
+%ifft to get y[n]
+yn= ifft(y,N);
+disp('linear convolution of x1 &x2 is yn=');
+disp(yn);
+%verify
+disp('output using conv');
+yv=conv(x1,x2);
+disp(yv);
+%plot
+stem(yn);
+title('linear convolution output y(n)');
