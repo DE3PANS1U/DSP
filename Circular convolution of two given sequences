@@ -1,0 +1,23 @@
+Circular convolution of two given sequences.
+
+%Circular Convolution Program
+x=[1 2 3 4];
+h= [1 2 3 4];
+N=max(length(x1),length(x2));
+%compute the output
+for n=0:N-1
+y(n+1)=0;
+for k=0:N-1
+i=mod((n-k),N); %calculation of x index
+if i<0
+i=i+N;
+end %end of „if‟
+y(n+1)=y(n+1)+h(k+1)*x(i+1);
+end %endofinner„forloop‟
+end %endofouter„forloop‟
+disp('circular convolution of x1 &x2 is y=');
+disp(y);
+%plot
+n1=0:N-1;
+stem(n1,y);
+title('Circular convolution output y(n)');
