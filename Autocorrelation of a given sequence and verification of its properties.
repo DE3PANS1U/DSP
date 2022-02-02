@@ -1,0 +1,59 @@
+Autocorrelation of a given sequence and verification of its
+properties.
+
+%Energy signals
+%simple sequence
+x2=[3,-1,2,1];
+>> xcorr(x2)
+ans=3 5 -3 15 -3 5 3
+%Computation of Autocorrelation of a
+% rectangular Sequence
+n = -5:5;
+N=10;
+% Generate the square sequence
+x = ones(1,11);
+% Compute the correlation sequence
+%r = conv(x, fliplr(x));
+r=xcorr(x);
+disp('autocorrelation sequence r=');
+disp(r);
+%plot the sequences
+subplot(2,1,1)
+stem(n,x);
+title('square sequence');
+subplot(2,1,2)
+k = -N:N;
+stem(k, r);
+title('autocorrelation output');
+xlabel('Lag index'); ylabel('Amplitude');
+%Verification of 1st Property
+R1=fliplr(r)
+If(r==R1)
+disp(‘r is Symmetric first property is verified’);
+else
+disp(‘r is not symmetric first property is not verified’);
+end
+%Verification of 2nd Property
+m=max(r);
+if(m==(r(N))
+disp(‘Maximum at origin 2nd property is verified’);
+else
+disp(‘Maximum is not at origin 2nd
+
+property is not verified’);
+
+end
+%Verification of 3rd property
+en=0.0;
+for i=1:N
+y=(x(i)*x(i));
+en=en+y;
+end
+disp(‘energy of the sequence-’);
+disp(en);
+disp(r(N));
+if(en==int8(r(N)))
+disp(‘Energy property is verified’)
+else
+disp(‘energy property is not verified’)
+end
