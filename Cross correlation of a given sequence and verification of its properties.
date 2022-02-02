@@ -1,0 +1,35 @@
+Cross correlation of a given sequence and verification of its
+properties.
+
+% Computation of Cross-correlation Sequence using folded sequence and convolution
+x = input('Type in the reference sequence = '); y =
+input('Type in the second sequence = ');
+% Compute the correlation sequence 
+n1 = length(x)-1;
+n2 = length(y)-1;
+Rxy=xcorr(x,y);
+N=max(n1,n2);
+l =-(N-1) : (N-1);
+disp(‘Cross correlation
+output is=’);
+disp(Rxy);
+stem(1,Rxy);
+title(‘cross correlation’);
+%Verification of 1st property
+Ryx=xcorr(y,x);
+If(Rxy=fliplr(Ryx))
+disp(‘1st Property is verified’);
+else
+disp(‘1st property is not verified’);
+end
+%Verification of 2nd property
+
+Rxx=xcorr(x,x);
+Ryy=xcorr(y,y);
+a=0.5*(abs(max(Rxx)+max(Ryy)))
+if(max(Rxy)<=a)
+disp(‘ 2nd
+Property is verified’);
+else
+disp(‘2nd Property is not verified’);
+end
