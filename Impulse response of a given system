@@ -1,0 +1,18 @@
+Impulse response of a given system
+
+y= input('The output sequence y(n) of the system=');
+x=input('the input sequence of the system=');
+h=deconv(y,x);
+disp('the impulse response of the system is=');
+disp(h);
+%graphical display part
+N=length(h);
+n=0:1:N-1;
+stem(n,h);
+xlabel('Time index n');
+ylabel('Amplitude');
+title('impulse response of a system')
+%Verification
+yv=conv(x,h);
+disp('the verified output sequence is');
+disp(yv)
