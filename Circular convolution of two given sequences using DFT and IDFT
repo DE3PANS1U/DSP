@@ -13,6 +13,6 @@ y= X1.*X2;
 yn= ifft(y,N);
 disp('circular convolution of x1 &x2 is yn=');
 disp(yn);
-%plot Fig.9.2
+%plot
 stem(yn);
 title('Circular convolution output y(n)');
