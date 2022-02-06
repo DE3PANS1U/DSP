@@ -1,5 +1,7 @@
 Impulse response of a given system
 
+clc
+clear all
 y= input('The output sequence y(n) of the system=');
 x=input('the input sequence of the system=');
 h=deconv(y,x);
