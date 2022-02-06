@@ -1,0 +1,56 @@
+Level 1 Program (both sequences are right sided)
+%main part of computation
+x1=input('Enter first sequence')
+x2=input('Enter second sequence')
+y=conv(x1,x2);
+disp('linear con of x1 & x2 is y=');
+disp(y);
+%graphical displaypart
+subplot (2,1,1);
+stem(y);
+xlabel('time index n');
+ylabel('amplitude ');
+title('convolution output');
+subplot(2,2,3);
+stem(x1);
+xlabel('time indexn');
+ylabel('amplitude ');
+title('plot of x1');
+subplot(2,2,4);
+stem(x2);
+xlabel('time indexn');
+ylabel('amplitude ');
+title('plot ofx2');
+
+
+
+Level 2 Program (Two sided sequences)
+%main part of computation
+x1=[1 2 3 2 1 3 4] %first sequence
+n1=-3:3 %time vector of first seq
+x2=[ 2 -3 4 -1 0 1] %second seq
+n2=-1:4 %time vector of secondseq
+%add first elements of time vector
+ybegin=n1(1)+n2(1);
+%add last elements of time vector
+yend=n1(length(x1))+n2(length(x2));
+ny=[ybegin:yend];
+y=conv(x1,x2) ;
+disp('linear con of x1 & x2 is y=');
+disp(y);
+%graphical display with time info
+subplot (2,1,1);
+stem(ny,y);
+xlabel('time index n');
+ylabel('amplitude ');
+title('convolution output');
+subplot(2,2,3);
+stem(n1,x1); 
+xlabel('time index n');
+ylabel('amplitude ');
+title('plot of x1');
+subplot(2,2,4);
+stem(n2,x2);
+xlabel('time index n');
+ylabel('amplitude ');
+title('plot of x2');
