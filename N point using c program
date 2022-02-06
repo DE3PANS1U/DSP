@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    float y[16];
+    float x[4] = {1,1,1,1};
+    float w;
+    int n,k,kl,N=8,xlen = 4;
+    for(k=0;k<2*N;k=k+2){
+        y[k] = 0;
+        y[k+1] = 0;
+        kl=k/2;
+        for(n=0;n<xlen;n++){
+            w=-2*3.14*kl*n/N;
+            y[k] = y[k]+x[n]*cos(w);
+            y[k+1] = y[k+1]+x[n]*sin(w);
+        }
+        printf("%f+j%f\n",y[k],y[k+1]);
+    }
+}
