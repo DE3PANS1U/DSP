@@ -16,7 +16,7 @@ disp('linear convolution of x1 &x2 is yn=');
 disp(yn);
 %verify
 disp('output using conv');
-yv=conv(x1,x2);
+yv=conv(x1,x2); 
 disp(yv);
 %plot
 stem(yn);
