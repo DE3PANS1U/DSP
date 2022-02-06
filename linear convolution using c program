@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+main() {
+    // Write C code here
+    float h[4] = {2,2,2,2};
+    float x[4] = {1,2,3,4};
+    float y[10];
+    int xlen = 4;
+    int hlen = 4;
+    int N = xlen+hlen-1;
+    int k,n;
+    for(n=0;n<N;n++){
+        y[n] = 0;
+        for(k=0;k<hlen;k++){
+            if(((n-k)>=0) & ((n-k)<hlen)){
+                y[n] = y[n]+h[k]*x[n-k];
+            }
+        }
+        printf("%f\t",y[n]);
+    }
+}
