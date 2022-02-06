@@ -2,7 +2,7 @@ Computation of N point DFT of a given sequence and to plot
 magnitude and phase spectrum
 
 x=[1,2,3,6]; %x[n] sequence
-N=4 %N points for DFT
+N=4; %N points for DFT
 xk=fft(x,N); %computesDFT
 % compute & plot amplitude spectrum
 n=0:1:N-1;
@@ -18,34 +18,7 @@ xlabel(' k');
 ylabel('angle(xk)');
 title('phase spectrum');
 figure(3);
-n1=0:1:length(x)-1;
-stem(n1,x);
-xlabel(' n');
-ylabel('x[n]');
-title('original signal');
-x=[2 3 9 -1];
-N=4;
-for k=0:N-1
-xk(k+1)=0;
-for n=0:N-1
-xk(k+1)=xk(k+1)+x(n+1)*exp(-j*2*pi*n*k/N);
-end
-end
-n=0:1:N-1;
-figure(1);
-stem(n,abs(xk));
-xlabel(' k');
-ylabel('lxkl');
-title('Magnitude spectrum');
-% phase spectrum
-figure(2);
-stem(n,angle(xk));
-xlabel(' k');
-ylabel('angle(xk)');
-title('phase spectrum');
-figure(3);
-n1=0:1:length(x)-1;
-stem(n1,x);
+stem(n,x);
 xlabel(' n');
 ylabel('x[n]');
 title('original signal');
