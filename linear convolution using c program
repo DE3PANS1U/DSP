@@ -12,7 +12,7 @@ main() {
     for(n=0;n<N;n++){
         y[n] = 0;
         for(k=0;k<hlen;k++){
-            if(((n-k)>=0) & ((n-k)<hlen)){
+            if(((n-k)>=0) & ((n-k)<xlen)){
                 y[n] = y[n]+h[k]*x[n-k];
             }
         }
