@@ -1,59 +1,44 @@
 Autocorrelation of a given sequence and verification of its
 properties.
 
-%Energy signals
-%simple sequence
-x2=[3,-1,2,1];
->> xcorr(x2)
-ans=3 5 -3 15 -3 5 3
-%Computation of Autocorrelation of a
-% rectangular Sequence
-n = -5:5;
-N=10;
-% Generate the square sequence
-x = ones(1,11);
-% Compute the correlation sequence
-%r = conv(x, fliplr(x));
-r=xcorr(x);
-disp('autocorrelation sequence r=');
-disp(r);
-%plot the sequences
-subplot(2,1,1)
-stem(n,x);
-title('square sequence');
-subplot(2,1,2)
-k = -N:N;
-stem(k, r);
-title('autocorrelation output');
-xlabel('Lag index'); ylabel('Amplitude');
-%Verification of 1st Property
-R1=fliplr(r)
-If(r==R1)
-disp(‘r is Symmetric first property is verified’);
+xn=input('enter');
+n=0:length(xn)-1;
+[rxx,l]=xcorr(xn);
+disp('auto sequence');
+disp(rxx);
+subplot(2,1,1);
+stem(n,xn)
+xlabel('n');
+ylabel('x(n)')
+title('input sequence');
+subplot(2,1,2);
+stem(l,rxx)
+xlabel('lag');
+ylabel('rxx(l)')
+title('auto corelation');
+rlxx=fliplr(rxx);
+if(rlxx==rxx)
+    disp('rxx is symmetrix first verified')
 else
-disp(‘r is not symmetric first property is not verified’);
+    disp('rxx is not symmetrix first not verified')
 end
-%Verification of 2nd Property
-m=max(r);
-if(m==(r(N))
-disp(‘Maximum at origin 2nd property is verified’);
+m=max(rxx);
+N=length(xn);
+if(m==(rxx(N)))
+    disp('max at origin 2nd verified')
 else
-disp(‘Maximum is not at origin 2nd
-
-property is not verified’);
-
+    disp('not max at origin 2nd not verified')
 end
-%Verification of 3rd property
 en=0.0;
-for i=1:N
-y=(x(i)*x(i));
-en=en+y;
+for i=1:N;
+    y=(xn(i)*xn(i));
+    en=en+y;
 end
-disp(‘energy of the sequence-’);
-disp(en);
-disp(r(N));
-if(en==int8(r(N)))
-disp(‘Energy property is verified’)
+disp('energy of the seq');
+disp(en)
+disp(rxx(N))
+if(en==int8(rxx(N)))
+    disp('energy prop is verified');
 else
-disp(‘energy property is not verified’)
+    disp('energy prop is not verified');
 end
